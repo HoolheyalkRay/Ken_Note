@@ -28,19 +28,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # 移除了缓存配置，避免因缺少 package-lock.json 导致任务失败
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: |
-                    # 如果没有 package-lock.json，npm install 会自动生成一个
           npm install
 
       - name: Build with VitePress
         run: |
-                    npm run docs:build
+          npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
