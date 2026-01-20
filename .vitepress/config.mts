@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Ken Notes",
   description: "SF6 Ken Guide",
-  srcDir: '../Ken_Obsidian_Project',
+  srcDir: './Ken_Obsidian_Project',
   
   // REWRITES: Map Source Path -> Target URL Path
   rewrites: {

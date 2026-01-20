@@ -35,19 +35,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd Ken_Site_Direct
-          # 如果没有 package-lock.json，npm install 会自动生成一个
+                    # 如果没有 package-lock.json，npm install 会自动生成一个
           npm install
 
       - name: Build with VitePress
         run: |
-          cd Ken_Site_Direct
-          npm run docs:build
+                    npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Ken_Site_Direct/.vitepress/dist
+          path: .vitepress/dist
 
   deploy:
     environment:
