@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Notes - 基础确认</title>
+    <!-- Use marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #1e1e20;
+            --text-color: #e2e2e3;
+            --accent-color: #3eaf7c;
+            --frame-plus: #42b983;
+            --frame-minus: #f66;
+            --frame-safe: #e6a23c;
+            --input-bg: #2d2d30;
+            --code-bg: #282c34;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #3e3e42;
+            padding-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.2rem; border-bottom: none; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.5rem; border-bottom: none; color: var(--accent-color); }
+
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+            background-color: var(--input-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #ff9800; /* Inputs look orange-ish */
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background-color: rgba(62, 175, 124, 0.1);
+            color: #ccc;
+        }
+
+        /* Visualization Classes */
+        .frame-plus {
+            color: var(--frame-plus);
+            font-weight: bold;
+            background: rgba(66, 185, 131, 0.1);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        .frame-minus {
+            color: var(--frame-minus);
+            font-weight: bold;
+            background: rgba(255, 102, 102, 0.1);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        .frame-safe {
+            color: var(--frame-safe);
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(230, 162, 60, 0.3);
+        }
+        
+        .input-icon {
+            display: inline-block;
+            font-family: 'Segoe UI Symbol', sans-serif;
+            font-weight: bold;
+            color: #61afef;
+        }
+
+        .damage-val {
+            color: #d19a66;
+            font-weight: bold;
+        }
+
+        /* List Styles */
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        Loading...
+    </div>
+
+    <script>
+        // The Markdown Content (Injected)
+        const markdownText = `# 起手与确认 (Starters & Confirms)
+
+本文档涵盖了肯的基础起手确认逻辑，以及确认后衔接的核心连段与压制（Oki）体系。
+
+## 1. 轻攻击确认 (点点确认)
+
+### 基础逻辑
+肯的轻攻击发生快，适合近身缠斗和打断对手节奏。
+- **防御**: 点三下轻拳 (\`5LP > 5LP > 5LP\`) 如果被防，拉后重新立回。不要头铁继续点，回合结束了。
+- **击中**: 如果确认打中，立刻接必杀技。
+- **三点拉后**: 点点点以后你的回合已经结束了，不要当吊毛，重新立回。
+
+### 常用确认连段
+1.  **三点确认 (最稳)**
+    - \`2LK > 2LP > 5LP > 重升龙\`
+    - **伤害**: 1590 (2LP起手) / 1490 (2LK起手)
+    - **优点**: 给反应的时间最长，适合新手。
+    - **注意**: 2LK 是下段，可以破站防。
+
+2.  **两点确认 (进阶)**
+    - \`2LK > 2LP > 轻旋风 > 中升龙\`
+    - **伤害**: 1710
+    - **优点**: 伤害比三点高，且可以带入更强的压制 (+33)。
+
+## 2. 2MK (下中脚) 确认
+
+### 复合绿冲 (Option Select Cancel Drive Rush)
+- **指令**: \`2MK > 66\` (下中脚后立刻输入前前)
+- **原理**: 2MK 打中或被防，绿冲都会出来；如果 2MK 挥空，绿冲不会出。
+- **后续分支**:
+    - **击中**:
+        - \`2MK > 绿冲 > 2HP > 刹车 > ...\` (进入连段)
+        - \`2MK > 绿冲 > 2HP > 刹车 > 2LP > TC > 跑旋风\` (伤害 1895, 帧数+43, 水泥工搬运连, 肯最核心的推板技能, 推板+压制)
+        - \`2MK > 绿冲 > 2HP > 刹车 > 2MP > 跑升\` (伤害 2322, 帧数 +25, 通用高伤, 推板, 压制集一身的肯用的最多的连招)
+        - \`2MK > 绿冲 > 2HP > 刹车 > TC > 跑龙尾 \` (伤害 1947, 帧数 +42, 超强的换边性能，后续有伤害有压制，还可以选择安全跳，重升龙伤害2241)
+        - \`2MK > 绿冲 > 2HP > 刹车 > 2MP > 轻旋风 > 中升龙\` (伤害 2360, 帧数+33, 高伤害 近板边起手后，有肯超强+33压制)
+
+       - **板边限定**:
+            - \`2MK > 绿冲 > 2HP > 刹车 > TC > 中迅雷 > 重升龙\` (伤害 2244, 帧数 +27, 可视血量确认后续接 SA)
+            - **板边特殊限定**:
+            - \`2MK > 绿冲 > 5MP > 2HP > 颠球 > 重升龙\` (伤害 2307, 帧数 +27, 伤害变低，但是加强了打斗气，后续求压制可以不重升龙变安全跳 )
+            - \`2MK > 绿冲 > 5MP > 2HP > 重迅雷 > 轻升龙\` (伤害 2447, +33 压制, 很反直觉的最高伤害连招，但是需要5MP起手其实有点影响手感)
+    - **被防**:
+        - \`2MK > 绿冲 > 5LP > 投 / 打投择\` (进入压制)
+        - \`2MK > 绿冲 > 5LP\` (联防 +3)
+            - **投择**: 贴身有利 +3，可直接投。
+            - **打乱动**: 5MP 打乱动抢 4f。
+                - 黄康简单确认 \`5LK > 升龙\`。
+                - 进阶最速 \`2MP > 跑升\`。
+                - 打到44后跳 \`5LP > 升龙\`。
+            - **点点前走投**: 5LP > 5LP > 前走投。
+            - **最速拆对策**: 44 (后退) 骗拆。
+                - 44 后最速 \`5HP > 2MK > 跑升\` (+25 压制)。
+                - 44 后最速 \`5HP > 2MK > 重旋风\` (+36 推板)。
+            - **延迟拆对策**: 后走骗拆打确反，还可以延迟 2LP，还可以打44和后跳。
+
+### 复合中迅雷 (2MK > 236K)
+没斗气的时候用来拖，但要承担被对策第二段的风险。
+- **极限距离被凹升龙确反一段中迅雷**:
+    - **不吃确反的角色**: 肯、火舞、豪鬼、杰米、隆、爱莲娜、春丽、朱莉。
+    - **很极限不吃确反 (要非常极限，稍微近一点就吃)**: 特瑞、DJ、嘉米。
+    - **必吃确反的角色**: 卢克、古烈、拉希德。
+    - **无敌技确反不到的角色**:
+        - 沙加特 (8f OD 升龙)、ED (12f OD 升龙) 确反不到。
+        - 布兰卡 (OD 28) 也凹不到。
+- **打防**:
+    - **下段 (轻脚派生)**: 打防 -5，距离不对会被确反（如绿冲三下轻攻击后接2MK中迅雷不会被确反）。打康倒地 +28。（再见了，所有的打康升龙取消SA3）
+    - **中段 (中脚派生)**: 需要从第一个中段开始判断，对手抢就多用下段，不抢就骗蓝防前走投。
+- **确认打中**:
+    - **重脚派生**: 打站姿 +33，板中距离远则绿冲压制，对手被踢到板边则+33跑步压制。
+    - **轻脚派生**: 打蹲姿 +3，无后续，遇到不会对策迅雷脚的对手，可根据距离继续用2MK/2MP/5HP复合迅雷打斗气。
+- **不派生**: -7，会被 7 帧以内的拳脚确反。
+
+## 3. 5HP (站重拳) 先进阶要确认
+
+- **打中**: +3 有利，不可接普通技，但可以接必杀或绿冲。
+    - **常用**: \`5HP > 绿冲 > 5HP > ...\` 或 \`5HP > 绿冲 > 2HP ...\`。
+     - **绿冲确认后续**: 2HP的好处是可选项变多，推板距离也边远了，但是强制站姿无法确认蹲姿，新手不考虑蹲姿限定可以无脑用2HP，可选项如下：
+     
+    - **绿冲确认后续**: 5HP的好处是可以确认蹲姿，但是可选项变少了，这里只列举部分选项：
+        - \`5HP > 绿冲 > 5HP > 2MP > 跑升\` (帧数 +25, 2957)
+        - \`5HP > 绿冲 > 5HP > TC > 龙尾 > 重升龙\` (帧数 +25, 2978, 换边)
+        - \`5HP > 绿冲 > 5HP > TC > 跑旋风\` (帧数 +43, 2460)
+        - **板边**: \`5HP > 绿冲 > 5HP > TC > 中迅雷 > 重升龙\` (帧数 +27, 2998)
+        - **板边**: \`5HP > 绿冲 > 5MP > 2HP > 重迅雷 > 轻升龙\` (帧数 +33, 3137)
+        - **板边**: \`5HP > 绿冲 > 5MP > 2HP > 颠球 > 重升龙\` (帧数 +27, 3095)
+    **板边推板**: \`5HP > TC > 中迅雷 > 重升龙\` 。
+- **打康**: +5 有利，可以目押接 \`5LK > 重升龙\` 。
+- **偷帧**: 某些距离或打乱动时，5HP 可能偷帧到 +5 以上，可以接 \`5LK > 重升龙\`。
+    - 偷到 +6到+8 可以接 \`2MP > 跑升\` (需贴身)。
+- **打防**: -2。
+    - **复合绿冲**: 5HP > 绿冲 > 5LP (联防 +3) > 投/后走骗拆。
+    - **复合迅雷**:
+        - 中迅雷一段 -7 (会被凹)。
+        - 重迅雷有缝隙一段 -2 (板边下段易被确反)。
+    - **复合发波**: 联防。
+
+## 4. TC (Target Combo) 确认
+肯的站中脚 TC 是 \`5MK > 5MK > 5HK\`。
+- **特点**: 只要 5MK 打中，TC 必中。
+- **用途**: 主要是确反或连段填充。5MK 单发确认 TC 比较难，通常是确定的确反或者绿冲连段中使用。
+
+---
+
+## 5. 核心连段与压制体系 (Core Combos & Oki)
+
+### 5.1 下中拳 KK 升龙 (+25)
+**连段路线**: \`... > 2MP > KK (跑) > 重升龙\`
+**有利帧**: +25 (重升龙收尾通用)
+**伤害参考**: 2322 / 2857
+
+#### 压制细节
+- **核心操作**: 最速前前 (66) 后 **+6**。
+- **板中 (MIDSCREEN)**:
+    - **原地起身**:
+        - **2MP (打中+4)**: 贴身，可确认 \`2LP > 5LK > 重升龙\`。
+        - **5MP (打中+6)**: 确认难度低，接 \`2MP > 跑升\`。打防平帧。
+    - **后起身**:
+        - 2MP 和 5MP 都不贴身了。
+        - **2MP (打康+6)**: 确认 \`5LK > 升龙\`。
+        - **5MP (打康+7)**: 确认 \`2MK > 跑升\`。
+    - **投**:
+        - 原地起身: +6 打投择，投需放 1f。
+        - 后起身: 需微前走投 (3-4f)。
+    - **骗拆 (+6)**:
+        - **44 骗拆**: 确反接 \`5HP > 2MK > 跑升\` (最大伤害) 或 \`重旋风\` (推板)。
+        - **垂直跳 骗拆**: 确反接 \`JHP > 2HP > 跑升\`。
+
+- **板边 (CORNER)**:
+    - **5LK (站轻脚) 压制 (有利帧 +7)**:
+        - **5MP 偷帧**: 打中(+7)接 \`2MP > 跑升\`；打康(+9)接 \`2HP > 颠球\`。
+        - **后走骗拆**: 比 +6 骗拆更强，确反接 \`2HP > TC > ...\`。
+
+### 5.2 (下轻拳) TC 接 KK 旋风腿 (+43)
+**连段路线**: \`(2LP) > TC (5MP-5HP) > KK (跑) > 旋风腿\`
+**有利帧**: +43 (落地不按键)
+**伤害参考**: 1895 / 2414
+
+#### 压制细节
+- **核心操作**: 最速前前 (66) 两次后 **+5**。
+- **+5 贴身打投择**:
+    - **点**: 三点确认 \`2LK > 2LP > 5LP\`；进阶 \`2LK > 2LP > 轻旋风 > 中升龙\`。
+    - **偷帧**: \`5LP\` (打防+1) 偷帧到 +5 可确认 TC。
+    - **投**: 直接投。
+    - **骗拆**: 44 骗拆 (+5 无法后走)；垂直跳只能骗延迟拆。
+- **其他起攻**:
+    - **最速轻拳 KK**: 中段(偷帧)/下段/投。
+    - **安全跳**: 板边放 1-2 帧。跳重拳打中接 \`2HP > 颠球\`。
+
+### 5.3 TC 接 KK 龙尾换边 (+42)
+**连段路线**: \`TC > KK (跑) > 龙尾脚\`
+**有利帧**: +42 (换边)
+
+#### 压制细节
+- **重升龙收尾**: 放 2f 对手后起身可 \`66 > 5HP\`。
+- **安全跳 (Safe Jump)**:
+    - **无受身**: 按轻脚逆向 +6。
+    - **有受身**: 按重拳 +11。打中接 TC；打防前走投或原地骗拆。
+- **落地不按键**: 诈尸 (44 骗最速拆)。
+- **两个 66**: +4 有利。
+
+### 5.4 下中拳 轻旋风 中升龙 (+33)
+**连段路线**: \`2MP > 轻旋风 > 中升龙\`
+**有利帧**: +33 (板边超强压制)
+
+#### 压制细节
+- **板边 +33 择**:
+    - **中段**: \`KK\` 放帧中段 (约跑两步)。
+    - **下段**: 最速 \`KK\` 刹车 \`2LK\`。
+    - **投**: 最速 \`KK\` 刹车投。
+    - **偷帧**: \`2MK\` (+5) > \`5LP\` 偷帧。
+
+### 5.5 板边限定：TC 中迅雷二段 放帧重脚 重升龙 (+27)
+**连段路线**: \`TC > 中迅雷 > (延迟) 重脚派生 > 重升龙\`
+**有利帧**: +27
+
+#### 压制细节
+- **核心操作**: 板边最速 \`站蹲轻拳\` (Whiff) + \`5HP\`。
+    - **打防 (+2)**: 接 \`5LP\` 打斗气。
+    - **打中 (乱动 +7)**: 确认 \`2MP > 跑升\`。
+    - **打康 (+9)**: 确认 \`2HP > 颠球\`。
+- **5MP (+5)**: 投(后走骗拆) 或 打(\`5LP\` 二次确认)。
+
+### 5.6 特殊板边连段 (绿冲 & SA)
+- **绿冲 5MP > 2HP > 颠球**: 回斗气，+27 压制。
+- **绿冲 5MP > 2HP > 重迅雷 > 轻升龙**: 板边最大伤害 (+33 压制)。
+- **带 SA 连段**: 详见全资源伤害汇总。
+
+---
+
+## 6. 其他起手与确认 (新增)
+
+### 6.1 站轻脚 (5LK)
+- **打康绿冲**: 可以连招。
+- **确反 (-5)**:
+    - \`5LK > 升龙\` (+25 压制)。
+    - \`5LK > 大旋风\` (+36 推板)。
+    - **带必杀**: 5LK 单发接 SA3 (3560)；OD 迅雷三段接 SA2 (3100)。
+- **确反 (-7/8)**: 5MP > 2HP > 跑升/轻旋风/重旋风。
+
+### 6.2 站中脚 (5MK)
+- **打中**: 按蓝防接 5HK TC (+32)。
+- **截绿冲**:
+    - 黄康确认 \`5LK > 升龙\`。
+    - 无脑按两下 MK 接 5HK TC。
+- **确反 (-8)**:
+    - 极限距离直接 TC。
+    - 近距离 \`2MK > 跑升\`。
+
+### 6.3 站重脚 (5HK)
+- **用途**: 打斗气和差合 (注意距离，太近被确反)。
+- **帧数**: 打防 -5，打中 +1，打康 +3。
+- **确反 (+56 击飞)**:
+    - **板中**: 最速跑升 (1800/2150)；最速龙尾换边升龙 (2500)；带 SA1/2/3。
+    - **绿冲重拳**: 接跑龙尾/跑踢/KK升龙。
+
+### 6.4 迸 (Drive Impact)
+- **迸墙**: 接 \`5HP > 重迅雷 > 中升龙\` (+33 压制，伤害 3060)。
+- **颠球**: 迸完等对手掉下来一点 \`2HP > 重迅雷 > 颠球\` (可带 SA)。
+- **迸反**:
+    - **板中**: \`JHK > 跑升\` (2870)；\`JHK > 跑龙尾\` (换边 3220)。
+    - **板边**: \`JHK > OD 迅雷 > ...\`。
+
+### 6.5 裸绿冲 (Raw Drive Rush)
+- **绿冲重拳**:
+    - **打防 (+2)**: 5MP 打抢 4f (黄康确认)；2MP 复合迅雷打斗气。
+    - **击中 (+7)**: 简单 TC 跑升；中距离 \`2MP > 跑升\`；远距离 \`2MK > 跑升\`。
+    - **打康 (+9)**: 压起身打防/打中确认。
+- **绿冲轻拳**:
+    - **打防 (+3)**: 性能优秀，可打投择。
+    - **击中 (+8)**: 5MP 二次确认接 \`2LP > 升龙\`。
+    - **打康 (+10)**: 2MP 跑升 (较稳定)。
+
+### 6.6 跳入 (Jump In)
+- **JHP (跳重拳)**: 打防可直接投 (4-9f)；打中 (8-15f) 接 \`2HP > 跑升\`。
+- **JHK (跳重脚)**: 无投择，接 \`2MK > 跑升\`。
+- **JLK/JMK**: 逆向距离。
+
+### 6.7 投 (Throw)
+- **板中倒地**: 绿冲压起身 (练习随机起身)。
+- **板边**: LOOP 投 (现版本只有 +2f，1f 容错)。
+- **投后压制详解 (后起身)**:
+    - **最速绿冲重拳**: 赢最速 4f/投；平蹲防/后走；输凹。
+    - **绿冲轻拳**: 赢最速抢/投；平后走/蹲防/延迟拆；输凹。
+    - **绿冲 2LK**: 赢 4f (微妙)/后跳；平 4f (相杀)/蹲防/延迟拆；输凹。
+
+### 6.8 安全跳 (Safe Jump) 汇总
+- **跑龙尾**: 42f
+- **跑旋风**: 43f
+- **颠球 > 轻迅雷 > 轻脚**: 44f
+- **重迅雷一段**: 42f
+- **TC 中迅雷一段**: 42f
+- **OD 迅雷重脚三段**: 42f
+
+### 6.9 打康连 (Counter Hit Combos)
+- **5LP 打康 (+6)**: 5LK 升龙 (远) / 2MP 跑升 (贴身)。
+- **2LP 打康 (+7)**: 确认 \`2MK > 跑升\`。
+- **跑踢 打康 (+5)**: 远 \`5LK > 升龙\`；近 \`5LK > 轻旋风 > 中升龙\`。
+- **2MP/5HP/5MK 打康 (+5)**: \`5LK > 升龙\`。
+
+### 6.10 截绿冲 & 打灰
+- **截绿冲**: 5MK / 2MP / 2MK；5LK 复合升龙/旋风。
+- **打灰 (Burnout)**:
+    - 迅雷军训 (2MK > 迅雷 联防)。
+    - 轻龙尾 (打蹲防 +1)。
+    - 轻拳 (+3) 压制循环。
+    - 墙边重拳迸发。
+
+### 6.11 距离陷阱 & 蹲姿限定
+- **距离陷阱**: \`5LK\` 后走、\`5HP\`、\`5HK\`、\`2MK\`。
+- **蹲姿限定**:
+    - **5HP/2MK 确认**: 接 \`5HP > 2MP > 绿冲 > 5HP > 中龙尾 > TC > 中迅雷 > 颠球\` (最大伤害)。
+    - **确反蹲姿**: 5HP 确反 / 2MK 确反。`;
+
+        // Configure Marked
+        // Apply customizations after parsing
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = marked.parse(markdownText);
+
+        // --- Custom Visualizations ---
+
+        // 1. Colorize Frame Data (+5, -2, +33)
+        // Regex: Matches + or - followed by digits.
+        // We need to be careful not to match inside URLs or other code, but strictly text.
+        // Simple approach: Walk through text nodes.
+        
+        function processTextNodes(node) {
+            if (node.nodeType === 3) { // Text node
+                const text = node.nodeValue;
+                // Regex for +Number, -Number
+                const frameRegex = /([+\-]\d+)/g;
+                
+                if (frameRegex.test(text)) {
+                    const span = document.createElement('span');
+                    // Replace +N with <span class="frame-plus">+N</span>
+                    // Replace -N with <span class="frame-minus">-N</span>
+                    // Special case: +40 or more (Safe Jumps/Oki) -> frame-safe
+                    span.innerHTML = text.replace(frameRegex, (match) => {
+                        const val = parseInt(match);
+                        if (val > 0) {
+                            if (val >= 20) return `<span class="frame-safe">${match}</span>`;
+                            return `<span class="frame-plus">${match}</span>`;
+                        } else if (val < 0) {
+                            return `<span class="frame-minus">${match}</span>`;
+                        }
+                        return match;
+                    });
+                    node.parentNode.replaceChild(span, node);
+                }
+            } else if (node.nodeType === 1 && node.tagName !== 'CODE' && node.tagName !== 'PRE') {
+                // Recurse for elements, skipping code blocks to avoid messing up syntax
+                Array.from(node.childNodes).forEach(processTextNodes);
+            }
+        }
+
+        processTextNodes(contentDiv);
+
+        // 2. Style Inputs in Code Blocks (2MK, 5HP, etc.)
+        // We target <code> elements.
+        const codeBlocks = document.querySelectorAll('code');
+        codeBlocks.forEach(code => {
+            let html = code.innerHTML;
+            
+            // Arrows for >
+            html = html.replace(/&gt;/g, '<span class="input-icon">➔</span>');
+            
+            // Highlight Damage numbers (e.g., 2957)
+            html = html.replace(/\b(\d{4})\b/g, '<span class="damage-val">$1</span>');
+
+            code.innerHTML = html;
+        });
+
+    </script>
+</body>
+</html>
