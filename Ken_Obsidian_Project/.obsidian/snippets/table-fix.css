@@ -1,0 +1,22 @@
+/* Obsidian 表格列宽跟随内容 */
+.cm-table-widget {
+  overflow-x: auto !important;
+}
+
+.cm-table-widget td,
+.cm-table-widget th {
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+}
+
+.markdown-reading-view td,
+.markdown-reading-view th {
+  white-space: nowrap !important;
+}
+
+/* 最后一列允许换行 */
+.cm-table-widget td:last-child,
+.markdown-reading-view td:last-child {
+  white-space: normal !important;
+  min-width: 120px !important;
+}
