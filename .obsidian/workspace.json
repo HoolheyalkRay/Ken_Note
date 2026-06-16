@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ken_Obsidian_Project/00 - 首页与索引/首页与索引.md",
+                "file": "Ken_Obsidian_Project/01 - 立回与中距离/立回基础.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "首页与索引"
+              "title": "立回基础"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Ken_Obsidian_Project/00 - 首页与索引/首页与索引.md",
+                "file": "Ken_Obsidian_Project/01 - 立回与中距离/立回基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "首页与索引 的反向链接列表"
+              "title": "立回基础 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Ken_Obsidian_Project/00 - 首页与索引/首页与索引.md",
+                "file": "Ken_Obsidian_Project/01 - 立回与中距离/立回基础.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "首页与索引 的出链列表"
+              "title": "立回基础 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ken_Obsidian_Project/00 - 首页与索引/首页与索引.md",
+                "file": "Ken_Obsidian_Project/01 - 立回与中距离/立回基础.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "首页与索引 的大纲"
+              "title": "立回基础 的大纲"
             }
           }
         ]
@@ -185,13 +185,13 @@
   },
   "active": "985115e4bc138d9c",
   "lastOpenFiles": [
+    "Ken_Obsidian_Project/02 - 起手与确认/基础确认.md",
+    "Ken_Obsidian_Project/07 - 资源运用与进阶/SA2与OD升龙压制.md",
     "Ken_Obsidian_Project/01 - 立回与中距离/立回基础.md",
     "Ken_Obsidian_Project/00 - 首页与索引/首页与索引.md",
-    "Ken_Obsidian_Project/02 - 起手与确认/基础确认.md",
     "Ken_Obsidian_Project/03 - 连段后的压制/压制速查.md",
     "Ken_Obsidian_Project/05 - 连段大全/版边连段.md",
     "Ken_Obsidian_Project/04 - 确反连段/确反指南.md",
-    "Ken_Obsidian_Project/07 - 资源运用与进阶/SA2与OD升龙压制.md",
     "Ken_Obsidian_Project/07 - 资源运用与进阶",
     "Ken_Obsidian_Project/05 - 连段大全/版中连段.md",
     "阿豆的肯笔记1.4_1019.md",
